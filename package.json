@@ -1,0 +1,17 @@
+{
+  "name": "graphQL-tutorial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Andrevile/graphQL-tutorial.git",
+  "author": "abg3000 <abg3000@naver.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "client": "yarn workspace client start",
+    "server": "yarn workspace server start"
+  }
+}
