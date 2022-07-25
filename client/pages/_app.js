@@ -1,7 +1,18 @@
 import './index.scss';
-
+import { useRef } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 const App = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
+  const clientRef = useRef(null);
+
+  const getClient = () => {
+    if (!clientRef.current) clientRef.current = new QueryClient();
+    return clientRef.current;
+  };
+  return (
+    <QueryClientProvider client={getClient()}>
+      <Component {...pageProps} />
+    </QueryClientProvider>
+  );
 };
 
 App.getInitialProps = async ({ ctx, Component }) => {
